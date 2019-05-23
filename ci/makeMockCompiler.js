@@ -3,7 +3,7 @@
 var fs = require('fs')
 var compiler = require('solc')
 var compilerInput = require('remix-solidity').CompilerInput
-var defaultVersion = 'v0.5.1+commit.c8a2cb62'
+var defaultVersion = 'v0.5.8+commit.23d335f2'
 
 compiler.loadRemoteVersion(defaultVersion, (error, solcSnapshot) => {
   if (error) console.log(error)
