@@ -102,10 +102,7 @@ class FileManager extends Plugin {
 
   closeFile (name) {
     delete this.openedFiles[name]
-    if (Object.keys(this.openedFiles).length) {
-      this.switchFile(Object.keys(this.openedFiles)[0])
-    } else {
-      this.editor.displayEmptyReadOnlySession()
+    if (!Object.keys(this.openedFiles).length) {
       this._deps.config.set('currentFile', '')
       this.events.emit('noFileSelected')
     }
