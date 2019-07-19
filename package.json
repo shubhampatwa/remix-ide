@@ -3,7 +3,7 @@
   "version": "v0.8.5",
   "description": "Minimalistic browser-based Solidity IDE",
   "devDependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.5.5",
     "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
@@ -73,7 +73,10 @@
   },
   "dependencies": {
     "@remixproject/engine": "^0.1.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.8.0",
     "http-server": "^0.11.1",
+    "regenerator-runtime": "^0.13.2",
     "remixd": "0.1.8-alpha.6",
     "standard": "^8.5.0"
   },

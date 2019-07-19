@@ -44,7 +44,8 @@ class SettingsUI {
     if (!this.el) return
     var accounts = $(this.el.querySelector('#txorigin')).children('option')
     accounts.each((index, account) => {
-      this.settings.getAccountBalanceForAddress(account.value, (err, balance) => {
+      console.log(account, '>>>>>>>>>>>>>>')
+      this.settings.getAccountBalanceForAddress(account.value.replace('xdc', '0x'), (err, balance) => {
         if (err) return
         account.innerText = helper.shortenAddress(account.value, balance)
       })
@@ -177,6 +178,7 @@ class SettingsUI {
 
     selectExEnv.addEventListener('change', (event) => {
       let context = selectExEnv.options[selectExEnv.selectedIndex].value
+      console.log(context, '.............')
       this.settings.changeExecutionContext(context, () => {
         modalDialogCustom.confirm('External node request', 'Are you sure you want to connect to an ethereum node?', () => {
           modalDialogCustom.prompt('External node request', 'Web3 Provider Endpoint', 'http://localhost:8545', (target) => {
@@ -331,6 +333,8 @@ class SettingsUI {
           delete this.loadedAccounts[loadedaddress]
         }
       }
+      accounts = accounts.map(acc => acc.replace('0x', 'xdc'))
+      console.log(accounts, '>>>>>>>')
       for (var i in accounts) {
         var address = accounts[i]
         if (!this.loadedAccounts[address]) {

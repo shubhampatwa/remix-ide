@@ -75,6 +75,7 @@ class Recorder {
 
       var address = executionContext.isVM() ? txResult.result.createdAddress : txResult.result.contractAddress
       if (!address) return // not a contract creation
+      address = address.replace('xdc', '0x')
       address = this.addressToString(address)
       // save back created addresses for the convertion from tokens to real adresses
       this.data._createdContracts[address] = timestamp
@@ -260,6 +261,7 @@ class Recorder {
             logCallBack(err + '. Execution failed at ' + index)
           } else {
             var address = executionContext.isVM() ? txResult.result.createdAddress : txResult.result.contractAddress
+            address = address.replace('xdc', '0x')
             if (address) {
               address = self.addressToString(address)
               // save back created addresses for the convertion from tokens to real adresses
