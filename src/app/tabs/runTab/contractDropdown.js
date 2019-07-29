@@ -124,7 +124,6 @@ class ContractDropdownUI {
 
   createInstance (args) {
     var selectedContract = this.getSelectedContract()
-
     if (selectedContract.bytecodeObject.length === 0) {
       return modalDialogCustom.alert('This contract may be abstract, not implement an abstract parent\'s methods completely or not invoke an inherited contract\'s constructor correctly.')
     }
@@ -191,6 +190,7 @@ class ContractDropdownUI {
     this.event.trigger('clearInstance')
 
     var address = this.atAddressButtonInput.value
+    address = address.replace('xdc', '0x')
     this.dropdownLogic.loadContractFromAddress(address,
       (cb) => {
         modalDialogCustom.confirm(null, 'Do you really want to interact with ' + address + ' using the current ABI definition?', cb)
