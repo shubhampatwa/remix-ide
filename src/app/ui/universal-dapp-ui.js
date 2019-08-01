@@ -62,7 +62,7 @@ UniversalDAppUI.prototype.renderInstanceFromABI = function (contractABI, address
   var instance = yo`<div class="instance ${css.instance} ${css.hidesub}" id="instance${address}"></div>`
   var context = self.udapp.context()
 
-  var shortAddress = helper.shortenAddress(address)
+  var shortAddress = helper.shortenAddress(address.replace('0x', 'xdc'))
   var title = yo`
     <div class="${css.title} alert alert-secondary p-2">
       <button class="btn ${css.titleExpander}" onclick="${(e) => { toggleClass(e) }}">
