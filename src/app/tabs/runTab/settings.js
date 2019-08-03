@@ -98,7 +98,7 @@ class SettingsUI {
         </div>
         <div class=${css.account}>
           <select name="txorigin" class="form-control ${css.select}" id="txorigin"></select>
-          ${copyToClipboard(() => document.querySelector('#runTabView #txorigin').value)}
+          ${copyToClipboard(() => document.querySelector('#runTabView #txorigin').value.replace('0x', 'xdc'))}
           <i id="remixRunSignMsg" class="fas fa-edit ${css.icon}" aria-hidden="true" onclick=${this.signMessage.bind(this)} title="Sign a message using this account key"></i>
         </div>
       </div>
