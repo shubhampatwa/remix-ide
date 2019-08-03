@@ -156,7 +156,7 @@ UniversalDAppUI.prototype.getCallButton = function (args) {
     } else {
       logMsg = `call to ${args.contractName}.${(args.funABI.name) ? args.funABI.name : '(fallback)'}`
     }
-    var value = inputsValues
+    var value = inputsValues.replace('xdc', '0x')
 
     var confirmationCb = (network, tx, gasEstimation, continueTxExecution, cancelCb) => {
       if (network.name !== 'Main') {
